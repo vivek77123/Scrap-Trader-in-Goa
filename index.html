@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scrap Trader</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/fontawesome.min.css" integrity="sha384-BY+fdrpOd3gfeRvTSMT+VUZmA728cfF9Z2G42xpaRkUGu2i3DyzpTURDo5A6CaLK" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <link href="style1.css" rel="stylesheet">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .navbar {
+            height: 85px;
+            border-radius: 0px 1.5px;
+        }
+        .d-flex {
+            gap: 1rem;
+        }
+        .left {
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            position: absolute;
+        }
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease-in-out;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            display: block;
+            background: #f07443;
+            transition: width 0.3s;
+           
+            left: 0;
+            bottom: -5px;
+        }
+        .nav-link.dropdown-toggle::after {
+    content: '';
+    position: absolute;
+    top: 70%;
+    right: -15px; /* Adjust the position as necessary */
+    width: 8px; /* Width of the arrow */
+    height: 8px; /* Height of the arrow */
+    border-radius: 50%; /* Makes the arrow rounded */
+    border-right: 2px solid #fff; /* Right border of the arrow */
+    border-bottom: 2px solid #fff; /* Bottom border of the arrow */
+    transform: translateY(-50%) rotate(45deg); /* Position and rotate to form the arrow */
+    pointer-events: none; /* Prevents the arrow from interfering with clicks */
+}
+        
+        .nav-link:hover::after {
+            width: 89%;
+        }
+
+        .parallax-container {
+    position: relative;
+    height: 60vh;
+    font-family: sans-serif;
+    font-style: normal;
+    font-weight: 250;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    animation: changeBackground 20s linear infinite;
+    transition: background-image 0.1s ease-in-out;
+    
+}
+
+    .parallax-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: rgb(215, 235, 202);
+        text-align: center;
+        z-index: 2;
+    }
+
+
+    @keyframes changeBackground {
+    0% {
+        background-image: url('recycle1.png');
+        transform: scale(1); /* Slight zoom-in */
+        opacity: 1;
+    }
+    10% {
+        opacity: 1;
+    }
+    25% {
+        background-image: url('recycle2.jpg');
+        transform: scale(1); /* Zoom-out */
+        opacity: 1;
+    }
+    35% {
+        opacity: 1;
+    }
+    50% {
+        background-image: url('recycle3.jpg');
+        transform: scale(1.05); /* Slight zoom-in */
+        opacity: 1;
+    }
+    60% {
+        opacity: 1;
+    }
+    75% {
+        background-image: url('recycle4.jpg');
+        transform: scale(1); /* Zoom-out */
+        opacity: 1;
+    }
+    85% {
+        opacity: 0;
+    }
+    100% {
+        background-image: url('recycle1.png');
+        transform: scale(1.05); /* Return to original state with slight zoom */
+        opacity: 0;
+    }
+    100% {
+        opacity: 1; /* Ensures the loop restarts smoothly */
+    }
+}
+
+    @keyframes fadeText {
+        0%, 20% {
+            opacity: 1;
+        }
+        25%, 45% {
+            opacity: 0;
+        }
+        50%, 70% {
+            opacity: 1;
+        }
+        75%, 95% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+    /* Dropdown Menu Styling */
+.dropdown-menu {
+    display: none;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+}
+
+.dropdown-menu.show {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Individual Items Icon Styling */
+.flaticon-truck::before {
+    content: "\f0d1"; /* Example icon code */
+}
+
+.flaticon-car::before {
+    content: "\f1b9"; /* Example icon code */
+}
+
+.flaticon-motorcycle::before {
+    content: "\f21c"; /* Example icon code */
+}
+
+.flaticon-metal::before {
+    content: "\f0c3"; /* Example icon code */
+}
+
+/* Add your own font-family or use Font Awesome icons */
+.flaticon-truck, .flaticon-car, .flaticon-motorcycle, .flaticon-metal {
+    font-family: 'FontAwesome'; /* or your custom icon font */
+    font-size: 18px;
+    vertical-align: middle;
+}
+.with-arrow::after {
+    content: ' \2193'; /* Unicode for downward arrow */
+    display: inline-block;
+    margin-left: 5px;
+}
+
+
+    </style>
+</head>
+<body>
+  
+  <nav class="navbar navbar-expand-lg" style="background-color: rgb(34, 16, 16);">
+    <div class="container-fluid">
+        <a class="navbar-brand text-white" style="margin-left: 15px;" href="#">
+            <i class="fas fa-recycle"></i> Scrap Dealer
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon" style="color: rgb(240, 201, 30); background-color: rgb(245, 210, 144); border-radius: 55%;"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-center" id="navbarTogglerDemo02">
+            <ul class="navbar-nav mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active text-white" style="margin-right: 15px; font-size: 20px;" aria-current="page" href="#">HOME</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a id="scrollToDeals" class="nav-link text-white dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-right: 15px; font-size: 20px;">
+                      DEALS
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="scrollToDeals">
+                      <a class="dropdown-item" href="#">
+                          <i class="flaticon-truck" style="margin-right: 10px;"></i>Truck
+                      </a>
+                      <a class="dropdown-item" href="#">
+                          <i class="flaticon-car" style="margin-right: 10px;"></i>Car
+                      </a>
+                      <a class="dropdown-item" href="#">
+                          <i class="flaticon-motorcycle" style="margin-right: 10px;"></i>Bike
+                      </a>
+                      <a class="dropdown-item" href="#">
+                          <i class="flaticon-metal" style="margin-right: 10px;"></i>Other Metal Items
+                      </a>
+                  </div>
+              </li>
+              
+                <li class="nav-item">
+                    <a class="nav-link text-white" style="margin-right: 15px; font-size: 20px;" href="about.html">ABOUT US</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="contact.html" style="font-size: 20px;">CONTACT US</a>
+
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="parallax-container">
+    <div class="parallax-content">
+        <h4>Get the Best Deals for Your Scrap - Anytime, <span class="changing-word">Anywhere</span></h4>
+
+        <!--form-->
+        <form id="contactForm" class="contact-form mt-4">
+            <div class="form-group">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" class="form-control" placeholder="Enter your name" required>
+                <div class="invalid-feedback">Please enter your name.</div>
+            </div>
+            <div class="form-group mt-3">
+                <label for="contactNo">Contact No</label>
+                <input type="tel" id="contactNo" class="form-control" placeholder="Enter your contact number" required>
+                <div class="invalid-feedback">Please enter a valid contact number.</div>
+            </div>
+            <button type="submit" class="btn btn-primary mt-4">Submit</button>
+        </form>
+    
+        <div class="call-now mt-4">
+            <a href="tel:9370371839" class="btn btn-transparent">
+                <i class="fas fa-phone-alt"></i> Call Now: 9370371839
+            </a>
+        </div>
+    </div>
+   
+</div>
+    
+    <!-- grid-->
+     <center>
+        <h2 id="deals" style="margin-top: 16px; color: rgb(241, 238, 238);">OUR DEALS</h2>
+     </center>
+    <div class="grid text-center">
+        <div class="g-col-6 g-col-md-4 floating-element">
+          <i class="fas fa-recycle" style="font-size: 50px; color: #28a745;"></i>
+          <h3>Scrap Collection</h3>
+          <p>We provide reliable scrap collection services right at your doorstep.</p>
+        </div>
+        <div class="g-col-6 g-col-md-4 floating-element">
+          <i class="fas fa-hand-holding-usd" style="font-size: 50px; color: #ffc107;"></i>
+          <h3>Best Prices</h3>
+          <p>Get the best market prices for your scrap materials with no hassle.</p>
+        </div>
+        <div class="g-col-6 g-col-md-4 floating-element">
+          <i class="fas fa-truck" style="font-size: 50px; color: #007bff;"></i>
+          <h3>Fast Pickup</h3>
+          <p>Experience quick and efficient scrap pickup services.</p>
+        </div>
+      </div>
+      
+      <center>
+        <h2 style="margin-top: 18px; color: rgb(247, 245, 245);">ABOUT SCRAP DEALER</h2>
+        <div class="road-container">
+          <div class="car-scrap-icon">
+            <i class="fas fa-car-crash"></i> <!-- Font Awesome car crash icon -->
+        </div>
+          <div class="road-track"></div>
+        </div>
+      </center>
+      
+      <div class="grid text-center">
+        <!-- First Grid Item -->
+        <div class="g-col-6 g-col-md-4 flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <i class="fas fa-recycle" style="font-size: 50px; color: #28a745;"></i>
+              <h3>Why Choose Us?</h3>
+            </div>
+            <div class="flip-card-back">
+              <p>We provide top-notch services, ensuring that your scrap materials are handled responsibly and efficiently. Our platform offers competitive prices, fast pickups, and an environmentally friendly approach.</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Second Grid Item -->
+        <div class="g-col-6 g-col-md-4 flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <i class="fas fa-hand-holding-usd" style="font-size: 50px; color: #ffc107;"></i>
+              <h3>What is Scrap Dealer?</h3>
+            </div>
+            <div class="flip-card-back">
+              <p>Scrap Dealer is a platform where you can trade your metal items, old vehicles, and other recyclable materials. We help you turn waste into value while contributing to a cleaner environment.</p>
+            </div>
+          </div>
+        </div>
+      
+        <!-- Third Grid Item -->
+        <div class="g-col-6 g-col-md-4 flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <i class="fas fa-truck" style="font-size: 50px; color: #007bff;"></i>
+              <h3>How You Benefit</h3>
+            </div>
+            <div class="flip-card-back">
+              <p>By using our services, you not only get the best prices for your scrap, but you also contribute to recycling efforts. This helps reduce environmental pollution and conserves natural resources.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h3 style="background-color: #aaba32; color: white; padding-left: 88px; height: 52px; margin-top: 50px; line-height: 52px;">Steps Involved in Car Scraping</h3>
+     
+      <div class="content container">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="icon-container">
+              <i class="fas fa-car-crash animated-icon"></i>
+              <h3>Car Scrapping</h3>
+              <p>Our platform specializes in the safe and eco-friendly disposal of end-of-life vehicles. We ensure that all parts are recycled or disposed of responsibly.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="icon-container">
+              <i class="fas fa-recycle animated-icon"></i>
+              <h3>Metal Recycling</h3>
+              <p>We handle all types of scrap metal, from aluminum to steel, ensuring they are processed and recycled in the most sustainable way possible.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="icon-container">
+              <i class="fas fa-industry animated-icon"></i>
+              <h3>Industrial Scrapping</h3>
+              <p>Our services extend to industrial scrap, offering efficient solutions for large-scale scrap metal disposal from factories and manufacturing plants.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="scrap-animate container">
+        <div class="video-content">
+          <h3>Watch How Scrapping Works</h3>
+          <h3>Upto 50+ People Scrap their Items</h3>
+          <i class="fas fa-arrow-down"></i>
+
+    <div id="counter">
+        <!-- counts -->
+    </div>
+        </div>
+        <div class="video-container">
+          <video autoplay muted loop>
+            <source src="scrapvideo.mp4" type="video/mp4">
+          </video>
+         
+        </div>
+        <hr style="width: 93%;">
+        <div class="image-container">
+            <img src="scrap3.jpg" alt="Scrap Image" class="scrap-image">
+            <div class="overlay-content">
+                <h2>Scarp Dealer In Goa</h2>
+                <p>We provide reliable and eco-friendly scraping services for all kinds of vehicles and metal items.</p>
+            </div>
+        </div>
+        
+        
+        <footer class="footer">
+            <div class="container">
+                <div class="row">
+                    <!-- Contact Information -->
+                    <div class="col-md-4 contact-info">
+                        <h4>Contact Us</h4>
+                        <p><i class="fas fa-phone-alt"></i> Call Now: <a style="text-decoration: none" href="tel:9370371839">9370371839</a></p>
+                        <p><i class="fas fa-envelope"></i> Email: <a href="mailto:ajaj41960@gmail.com">ajaj41960@gmail.com</a></p>
+                        <p><i class="fas fa-map-marker-alt"></i> Address: Near Vrundavan Institute of Nursing Education,<br> Mapusa, Kolval, Goa, 403507</p>
+                        <p><i class="fas fa-directions"></i> <a href="https://www.google.com/maps?q=Near+Vrundavan+Institute+of+Nursing+Education,+Mapusa,+Kolval,+Goa,+403507" target="_blank">Get Directions</a></p>
+                    </div>
+                    <!-- Quick Links -->
+                    <div class="col-md-4 quick-links">
+                        <h4>Quick Links</h4>
+                        <ul>
+                            <li><a style ="text-decoration: none;" href="#">Home</a></li>
+                            <li><a style="text-decoration: none;" href="about.html">About Us</a></li>
+                            <li><a style=" text-decoration: none;"href="#">Deals</a></li>
+                            <li><a style="text-decoration: none;" href="contact.html">Contact</a></li>
+                            <li><a style="text-decoration: none;"href="#">FAQs</a></li>
+                        </ul>
+                    </div>
+                    <!-- Additional Information -->
+                    <div class="col-md-4 additional-info">
+                        <h4>About Scrap Dealer</h4>
+                        <p>Your trusted partner in scrap recycling. We provide efficient and eco-friendly solutions for all your metal and vehicle recycling needs.</p>
+                        <p>Follow us on:</p>
+                        <div class="social-icons">
+                            <a id="facebook" href="#"><i class="fab fa-facebook"></i></a>
+                            <a id="twitter" href="#"><i class="fab fa-x-twitter"></i></a>
+                            <a id= "instagram" href="https://www.instagram.com/scrap___traders?igsh=Y3dxOHMxZDN3M2Jx&utm_source=qr"><i class="fab fa-instagram"></i></a>
+                           
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom text-center">
+                    <p>&copy; 2024 Scrap Dealer. All Rights Reserved.</p>
+                </div>
+            </div>
+        </footer>
+        <a href="https://wa.me/9370371839" class="call-now-btn" target="_blank">
+          <img src="whatsapp.png" alt="Call Now" class="call-now-icon">
+      </a>
+             
+        </div>
+      </div>
+      
+    
+</body>
+<script>
+  window.onload = function() {
+      document.querySelector('.car-scrap-icon').classList.add('animate');
+  };
+
+  let counts;
+let upto = 0;
+
+// Function to start or restart the counter
+function startCounter() {
+    // Clear any existing interval
+    if (counts) {
+        clearInterval(counts);
+    }
+    // Reset the counter value
+    upto = 0;
+    // Start a new interval
+    counts = setInterval(updated, 10); // Adjust interval timing as needed
+}
+
+// Function to update the counter
+function updated() {
+    let count = document.getElementById("counter");
+    count.innerHTML = ++upto;
+    if (upto === 1000) {
+        clearInterval(counts);
+    }
+}
+
+// Event listener for scroll event
+window.addEventListener('scroll', startCounter);
+
+// Initial start of the counter
+startCounter();
+
+  //for scroll the page when we click on deals
+  
+  document.getElementById('scrollToDeals').addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent the default anchor behavior
+            
+            const dealsSection = document.getElementById('deals');
+            
+            window.scrollTo({
+                top: dealsSection.offsetTop - 60, // Adjust for fixed navbar height if needed
+                behavior: 'smooth' // Smooth scroll effect
+            });
+        });
+</script>
+
+<script src="script.js"></script>
+</html>
