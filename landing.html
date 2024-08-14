@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scrap Dealer</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #333;    
+           
+        }
+
+        .container {
+            text-align: center;
+            position: relative;
+        }
+
+        h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: #4caf50;
+            animation: fadeIn 3s ease-in-out;
+        }
+
+        .logo img {
+            width: 150px;
+            animation: rotateIn 4s ease-in-out;
+        }
+
+        .text-behind-logo {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 24px;
+            color: rgba(76, 175, 80, 0.5);
+            white-space: nowrap;
+            animation: slideText 10s infinite linear;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes rotateIn {
+            0% {
+                transform: rotate(-360deg);
+            }
+
+            100% {
+                transform: rotate(0deg);
+            }
+        }
+
+        @keyframes slideText {
+            0% {
+                left: 100%;
+            }
+
+            100% {
+                left: -100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="text-behind-logo">
+           
+        <div class="logo">
+            <img src="icon1.jpg" alt="Reduce, Reuse, Recycle">
+        </div>
+        <h1>Scrap Dealer</h1>
+    </div>
+    <script>
+        setTimeout(function() {
+            window.location.href = "index.html";  // Redirect to your main website (index.html)
+        }, 4000); // Adjust the timing as needed
+    </script>
+</body>
+
+</html>
