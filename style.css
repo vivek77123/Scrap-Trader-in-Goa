@@ -1,0 +1,246 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+   background-image: url('image.jpg');
+   background-repeat: no-repeat;
+}
+.navbar {
+    height: 85px;
+    border-radius: 0px 1.5px;
+}
+.d-flex {
+    gap: 1rem;
+}
+
+.nav-link {
+    position: relative;
+    transition: color 0.3s ease-in-out;
+}
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    display: block;
+    background: #f0a500;
+    transition: width 0.3s;
+    left: 0;
+    bottom: -5px;
+}
+.nav-link.dropdown-toggle::after {
+    content: '';
+    position: absolute;
+    top: 70%;
+    right: -15px; /* Adjust the position as necessary */
+    width: 8px; /* Width of the arrow */
+    height: 8px; /* Height of the arrow */
+    border-radius: 50%; /* Makes the arrow rounded */
+    border-right: 2px solid #fff; /* Right border of the arrow */
+    border-bottom: 2px solid #fff; /* Bottom border of the arrow */
+    transform: translateY(-50%) rotate(45deg); /* Position and rotate to form the arrow */
+    pointer-events: none; /* Prevents the arrow from interfering with clicks */
+}
+.nav-link:hover::after {
+    width: 89%;
+}
+
+.dropdown-menu {
+    display: none;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+}
+
+.dropdown-menu.show {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Individual Items Icon Styling */
+.flaticon-truck::before {
+    content: "\f0d1"; /* Example icon code */
+}
+
+.flaticon-car::before {
+    content: "\f1b9"; /* Example icon code */
+}
+
+.flaticon-motorcycle::before {
+    content: "\f21c"; /* Example icon code */
+}
+
+.flaticon-metal::before {
+    content: "\f0c3"; /* Example icon code */
+}
+
+/* Add your own font-family or use Font Awesome icons */
+.flaticon-truck, .flaticon-car, .flaticon-motorcycle, .flaticon-metal {
+    font-family: 'FontAwesome'; /* or your custom icon font */
+    font-size: 18px;
+    vertical-align: middle;
+}
+.with-arrow::after {
+    content: ' \2193'; /* Unicode for downward arrow */
+    display: inline-block;
+    margin-left: 5px;
+}
+
+
+.about-us-section {
+     /* Replace with your background image URL */
+    background-size: cover;
+    background-position: center;
+    color: rgb(228, 226, 240);
+    font-weight: 300;
+    padding: 50px 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.icon-container {
+    margin: 20px 0;
+}
+
+.recycle-icon {
+    font-size: 100px;
+    color: #004d00; /* Dark green color for the recycling icon */
+}
+
+.description {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.benefits-list {
+    list-style: none;
+    padding: 0;
+}
+
+.benefits-list li {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    padding: 5px 0;
+  
+}
+
+/*footer*/
+
+.footer {
+    background-color: #1b530f; /* Dark Green Background */
+    color: white;
+    padding: 40px 0;
+    position: relative;
+    width: 100vw; 
+    left: -0.5%;
+    margin: 0 auto; 
+    z-index: 1;
+    margin-top: 40px;
+}
+
+
+.footer h4 {
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: #f0a500; /* Accent Color */
+}
+
+.footer a {
+    color: #f0a500;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    color: #ffca28;
+    text-decoration: underline;
+}
+
+.footer .contact-info p,
+.footer .quick-links ul,
+.footer .additional-info p {
+    margin: 10px 0;
+}
+
+.footer .quick-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer .quick-links ul li {
+    margin-bottom: 10px;
+}
+
+.footer .quick-links ul li a {
+    font-size: 16px;
+}
+
+.footer .social-icons a {
+    margin-right: 10px;
+    font-size: 23.2px;
+    color: white;
+}
+
+#facebook{
+    
+    color: rgb(96, 158, 239);
+    border-radius: 45%;
+}
+#twitter{
+  color: #fcf6f6;
+}
+#instagram {
+    background: linear-gradient(45deg, #f58529, #dd2a7b, #8134af, #515bd4);
+    color: white; /* Icon color */
+    border-radius: 50%; /* Makes the background circular */
+    padding: 10px; /* Adjust padding for size */
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 20px; /* Adjusts the vertical alignment */
+}
+.footer .social-icons a:hover {
+    color: #ffca28; /* Hover Color */
+}
+
+.footer .footer-bottom {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    font-size: 14px;
+}
+
+
+.footer .contact-info i.fa-directions {
+    color: #4285f4; 
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .footer .row > div {
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .footer .footer-bottom {
+        font-size: 12px;
+    }
+}
