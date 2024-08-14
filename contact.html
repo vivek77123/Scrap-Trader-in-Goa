@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Scrap Dealer</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@flaticon/flaticon@1.0.0/css/flaticon.min.css"> <!-- Flaticon CSS -->
+    <style>
+        body {
+            background-image: url('car.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed; 
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .contact-form {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .greeting-icon {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            color: rgb(255, 255, 255);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 50px;
+            font-size: 24px;
+            cursor: pointer;
+        }
+           .greeting-icon a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .greeting-icon:hover {
+            scale: 1.38;
+           
+        }
+
+        @media (max-width: 768px) {
+            .col-md-6 {
+                flex: 0 0 100%;
+                max-width: 100%;
+            }
+
+            h2 {
+                font-size: 28px;
+                left: 0;
+                text-align: center;
+                position: relative;
+            }
+
+            .greeting-icon {
+                bottom: 10px;
+                right: 10px;
+                width: 40px;
+                height: 40px;
+                line-height: 40px;
+                font-size: 20px;
+            }
+
+            .contact-form {
+                padding: 15px;
+            }
+
+            p a {
+                font-size: 20px;
+                text-align: center;
+                display: block;
+                margin-top: 10px;
+                margin-left: 0;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .container {
+                margin-top: 100px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6">
+                <h2 style="color: aliceblue; font-size: 39px; position: absolute; left: -109px; cursor: pointer;">Contact Us</h2>
+
+                <p><a style="text-decoration: none; color: rgb(154, 239, 154); font-size: 33px; position: absolute; margin-top: 78px" href="https://www.google.com/maps?q=Near+Vrundavan+Institute+of+Nursing+Education,+Mapusa,+Kolval,+Goa,+403507" target="_blank">View on Google Maps</a></p>
+            </div>
+            <div class="col-md-6">
+                <div class="contact-form">
+                    <h4 style="top: 3%;">Contact For Query</h4>
+                    <form action="your-server-endpoint" method="post">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" class="form-control" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact">Contact Number</label>
+                            <input type="text" class="form-control" id="contact" name="contact" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-success">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="greeting-icon">
+        <a href="mailto:ajaj41960@gmail.com" title="Contact Us">
+            <img src="https://cdn-icons-png.flaticon.com/512/5578/5578899.png" width="66px" height="59.5px" style="border-radius: 50%;">
+        </a>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
+
